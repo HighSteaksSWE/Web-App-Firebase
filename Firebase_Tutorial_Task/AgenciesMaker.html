@@ -1,0 +1,133 @@
+ <html>
+     <head> 
+    <!-- load jquery, bootstrap CSS, firebase-->
+    <!-- jqury-->
+    <script
+    src="https://code.jquery.com/jquery-3.4.1.min.js"
+    integrity="sha256-CSXorXvZcTkaix6Yvo6HppcZGetbYMGWSFlBw8HfCJo="
+    crossorigin="anonymous"></script>
+
+    <!-- bootstrap -->
+    <link href="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-Vkoo8x4CGsO3+Hhxv8T/Q5PaXtkKtu6ug5TOeNV6gBiFeWPGFN9MuhOf23Q9Ifjh" crossorigin="anonymous">
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/js/bootstrap.min.js" integrity="sha384-wfSDF2E50Y2D1uUdj0O3uMBJnjuUD4Ih7YwaYd1iqfktj0Uod8GCExl3Og8ifwB6" crossorigin="anonymous"></script>
+
+
+    <!-- Getting Started with Firebase -->
+    <body>
+      <!-- Insert these scripts at the bottom of the HTML, but before you use any Firebase services -->
+    
+      <!-- Firebase App (the core Firebase SDK) is always required and must be listed first -->
+      <script src="/__/firebase/7.12.0/firebase-app.js"></script>
+    
+      <!-- If you enabled Analytics in your project, add the Firebase SDK for Analytics -->
+      <script src="/__/firebase/7.12.0/firebase-analytics.js"></script>
+    
+      <!-- Add Firebase products that you want to use -->
+      <script src="/__/firebase/7.12.0/firebase-auth.js"></script>
+      <script src="/__/firebase/7.12.0/firebase-firestore.js"></script>
+    </body>
+        
+      
+     <body>
+      <!-- Previously loaded Firebase SDKs -->
+
+      <!-- Initialize Firebase -->
+      <script src="/__/firebase/init.js"></script>
+    </body>   
+
+     </head>
+
+
+
+
+     <body> 
+         <!-- html forms-->
+
+         <!-- log in form-->
+         <div class = "container" id = "login-form">
+         <div class = "well">      
+         <form>
+          <div class="form-group">
+            <h3> Create an account or sign in</h3> 
+            <label for="inputEmail">Email address</label>
+            <input type="email" class="form-control" id="inputEmail" placeholder="Email">
+          </div>
+          <div class="form-group">
+            <label for="inputPassword">Password</label>
+            <input type="password" class="form-control" id="inputPassword" placeholder="Password">
+          </div>
+          <button id = "sign-in-button"  type="button" class="btn btn-primary">Sign in</button>
+          <button id= "create-newuser-button" type= "button" class= "btn btn-primary"> Creat new account</button>
+          <button id = "google-login-button" type= "button" class="btn btn-primary">Sign in with Google</button>
+        </form> 
+      </div> 
+      </div>
+        
+
+         <!-- add Agency form-->
+         
+         <div class = "container" id = "add-Agency">
+          <div class=" Normal Well" style="background-color: rgb(211,211,211);">
+          <form>
+           <div class="form-group">
+            <h3> Add a new Agency</h3> 
+             <label for="inputAgencyName">Agency Name</label>
+             <input type="text" class="form-control" id="inputAgencyName" placeholder="Agency Name">
+           </div>
+           <div class="form-group">
+            <label for="agency-access-info">Info Aaccess</label>
+            <select class="form-control" id="agency-access-info">
+              <option value="No">No</option>
+              <option value="Yes">Yes</option>              
+            </select>
+           </div>
+           
+           <div class="form-group">
+            <label for="agency-priority">Priority: <span class = "attrib-value">50</span></label>
+            <input type="range" id="agency-priority" name="Priority" min="0" max="50">
+
+           </div>
+
+           <div class="checkbox">
+            <label>
+              <input id = "id-special" type="checkbox"> Is Special
+            </label>
+          </div>
+        
+
+           <button id = "create-newAgency-button"  type="button" class="btn btn-primary">Add new Agency</button>
+         </form> 
+        </div>  
+       </div> 
+
+
+      <!-- scripts -->
+      <script>
+        // button listeners
+        $("#create-newuser-button").click(function(){
+          var email = $("#inputEmail").val();
+          var password = $("#inputPassword").val();
+          console.log("New user =" + email + " " + password);
+          SignIn(email, password)
+
+        });
+        function SignIn(email, password){  
+          firebase.auth().createUserWithEmailAndPassword(email, password).catch(function(error) {
+            // Handle Errors here.
+            var errorCode = error.code;
+            var errorMessage = error.message;
+            console.log(errorMessage);
+          }); //email-password.html
+      }
+
+         
+       </script>
+       
+      
+ 
+
+
+
+       
+    </body>  
+ </html>
