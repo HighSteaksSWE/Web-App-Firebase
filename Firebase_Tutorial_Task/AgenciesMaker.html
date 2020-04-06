@@ -13,28 +13,29 @@
 
 
     <!-- Getting Started with Firebase -->
-    <body>
-      <!-- Insert these scripts at the bottom of the HTML, but before you use any Firebase services -->
-    
-      <!-- Firebase App (the core Firebase SDK) is always required and must be listed first -->
-      <script src="/__/firebase/7.12.0/firebase-app.js"></script>
-    
-      <!-- If you enabled Analytics in your project, add the Firebase SDK for Analytics -->
-      <script src="/__/firebase/7.12.0/firebase-analytics.js"></script>
-    
-      <!-- Add Firebase products that you want to use -->
-      <script src="/__/firebase/7.12.0/firebase-auth.js"></script>
-      <script src="/__/firebase/7.12.0/firebase-firestore.js"></script>
+    <!-- The core Firebase JS SDK is always required and must be listed first -->
+    <script src="https://www.gstatic.com/firebasejs/7.13.2/firebase-app.js"></script>
+
+    <!-- TODO: Add SDKs for Firebase products that you want to use
+        https://firebase.google.com/docs/web/setup#available-libraries -->
+        <script src="https://www.gstatic.com/firebasejs/7.13.2/firebase-auth.js"></script>
+
+    <script>
+      // Your web app's Firebase configuration
+      var firebaseConfig = {
+        apiKey: "AIzaSyA3ueet6sM-pb7Sc52PJlDZH7NGUY8ViXk",
+        authDomain: "agencies-maker.firebaseapp.com",
+        databaseURL: "https://agencies-maker.firebaseio.com",
+        projectId: "agencies-maker",
+        storageBucket: "agencies-maker.appspot.com",
+        messagingSenderId: "225195620595",
+        appId: "1:225195620595:web:0e2c60a207509ca2669f86"
+      };
+      // Initialize Firebase
+      firebase.initializeApp(firebaseConfig);
+    </script>  
     </body>
         
-      
-     <body>
-      <!-- Previously loaded Firebase SDKs -->
-
-      <!-- Initialize Firebase -->
-      <script src="/__/firebase/init.js"></script>
-    </body>   
-
      </head>
 
 
@@ -113,11 +114,11 @@
         });
         function SignIn(email, password){  
           firebase.auth().createUserWithEmailAndPassword(email, password).catch(function(error) {
-            // Handle Errors here.
-            var errorCode = error.code;
-            var errorMessage = error.message;
-            console.log(errorMessage);
-          }); //email-password.html
+        // Handle Errors here.
+        var errorCode = error.code;
+        var errorMessage = error.message;
+         console.log(errorMessage);
+        }); //email-password.html
       }
 
          
